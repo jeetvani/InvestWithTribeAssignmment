@@ -7,7 +7,7 @@ const { pool } = connection;
 const RegisterUser = router.post("/registerUser", (req, res) => {
   const { Name, PAN, Address } = req.body;
   const Id = uniqid();
-  const query = `INSERT INTO users (Id,Name,PAN,Address) VALUES ('${Id}','${Name}','${PAN}','${Address}')`;
+  const query = `INSERT INTO User (Id,Name,PAN,Address) VALUES ('${Id}','${Name}','${PAN}','${Address}')`;
   pool.query(query, (err, result) => {
     if (err) {
       console.error("Error checking user exist:", err);

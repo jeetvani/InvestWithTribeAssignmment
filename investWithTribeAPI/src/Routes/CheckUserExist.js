@@ -4,7 +4,7 @@ const router = Router();
 
 const CheckUserExist = router.post("/checkUserExist", (req, res) => {
   const { email } = req.body;
-  const query = `SELECT * FROM users WHERE email = '${email}'`;
+  const query = `SELECT * FROM User WHERE email = '${email}'`;
   pool.query(query, (err, result) => {
     if (err) {
       console.error("Error checking user exist:", err);
