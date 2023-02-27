@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "604668627496",
+    "project_id": "investwithtribe-6c09b",
+    "storage_bucket": "investwithtribe-6c09b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604668627496:android:021a3e044db5868839831d",
+        "android_client_info": {
+          "package_name": "com.investwithtribe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604668627496-iab6c644h7m3vrq4kjhstaf5vffdts8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.investwithtribe",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "604668627496-a06rnpnjbc4doaep1g5gqmsamiha438o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP2TIv3nStiEk_uqZaIEPxTMsi5AuG68w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604668627496-a06rnpnjbc4doaep1g5gqmsamiha438o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
