@@ -7,6 +7,23 @@ import { useNavigation } from '@react-navigation/native';
 interface ProfileScreenProps { }
 
 const ProfileScreen: React.FC<ProfileScreenProps> = () => {
+
+
+  const getUserDetails = async () => {
+    const Id = await AsyncStorage.getItem('Id');
+    const response = await axiosClient.post('/getUserDetails', {
+      Id,
+    });
+    const { Name, PAN, Email, Address } = response.data.userData;
+    setName(Name);
+    setPAN(PAN);
+    setEmail(Email);
+    setAddress(Address);
+  }
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+
   const navigation = useNavigation()
   const [name, setName] = useState('');
   const [pan, setPAN] = useState('');
@@ -27,7 +44,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = () => {
       <Text style={styles.value}>{email}</Text>
       <Text style={styles.label}>Address:</Text>
       <Text style={styles.value}>{address}</Text>
-      <PrimaryButton  onPress={LogOut} content='Log Out' />
+      <PrimaryButton onPress={LogOut} content='Log Out' />
     </View>
   );
 };

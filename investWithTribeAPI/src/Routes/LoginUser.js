@@ -5,7 +5,7 @@ const router = Router();
 const { pool } = connection;
 
 
-const LoginUser = router.post("/checkUserExist", (req, res) => {
+const LoginUser = router.post("/LoginUser", (req, res) => {
     const { Id } = req.body;
     const query = `SELECT * FROM User WHERE Id = '${Id}'`;
 pool.query(query, (err, result) => {
