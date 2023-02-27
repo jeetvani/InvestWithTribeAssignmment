@@ -2,7 +2,6 @@
     "name": "investwithtribeapi",
     "version": "1.0.0",
     "description": "",
-
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "nodemon": "cd src && nodemon index.js",
@@ -14,6 +13,8 @@
     "dependencies": {
         "express": "^4.18.2",
         "msql": "^1.0.3",
-        "mysql": "^2.18.1"
+        "mysql": "^2.18.1",
+        "uniqid": "^5.4.0",
+        "uuid": "^9.0.0"
     }
 }

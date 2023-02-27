@@ -11,7 +11,7 @@ const CheckUserExist = router.post("/checkUserExist", (req, res) => {
       return;
     }
     if (result.length > 0) {
-      res.send({ userExist: true });
+      res.send({ userExist: true,userData:result[0] });
     } else {
       res.send({ userExist: false });
     }
