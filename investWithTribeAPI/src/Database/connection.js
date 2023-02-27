@@ -3,7 +3,7 @@ const { dbConfig } = require("./dbConfig");
 
 const pool = mysql.createPool(dbConfig);
 
-pool.getConnection((err, connection) => {
+ pool.getConnection((err, connection) => {
   if (err) {
     console.error("Error connecting to database:", err);
     return;
@@ -14,4 +14,4 @@ pool.getConnection((err, connection) => {
   connection.release();
 });
 
-module.exports = pool;
+module.exports = {pool};
