@@ -71,11 +71,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#ffffff',
   },
   title: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#000000',
   },
   row: {
     flexDirection: 'row',
@@ -83,12 +85,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   label: {
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: 'bold',
     marginRight: 10,
   },
   value: {
-    fontSize: 16,
+    fontSize: 18,
+    color: '#000000',
   },
 });
 

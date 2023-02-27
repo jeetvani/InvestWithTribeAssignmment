@@ -4,6 +4,7 @@ import FormInput from '../Components/FormInput';
 import PrimaryButton from '../Components/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import axiosClient from '../Api/axiosClient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface RegistrationFormProps { }
 
@@ -23,9 +24,9 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ route }) => {
       Address,
       PAN,
       email,
-    }).then((res) => {
+    }).then(async(res) => {
       console.log(res.data)
-      
+      await AsyncStorage.setItem('Id', res.data.Id)
       navigation.navigate('Profile')
 
 
