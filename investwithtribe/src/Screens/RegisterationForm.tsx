@@ -16,16 +16,24 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ route }) => {
   const user = route.params.user;
 
   const email = user.email;
-  const registerUser = () => {
+  const registerUser = async () => {
 
-axiosClient.post('/registerUser', {
+    axiosClient.post('/registerUser', {
       Name,
       Address,
       PAN,
       email,
-})
+    }).then((res) => {
+      console.log(res.data)
+      
+      navigation.navigate('Profile')
 
-    navigation.navigate('Profile')
+
+    }).catch((err) => {
+      console.log(err)
+
+    })
+
   }
 
   return (

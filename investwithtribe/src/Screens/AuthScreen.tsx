@@ -4,6 +4,7 @@ import PrimaryButton from '../Components/PrimaryButton';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useNavigation } from '@react-navigation/native';
 import axiosClient from '../Api/axiosClient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 interface AuthScreenProps {

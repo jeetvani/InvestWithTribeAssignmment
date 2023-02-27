@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PrimaryButton from '../Components/PrimaryButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
-interface ProfileScreenProps {}
+interface ProfileScreenProps { }
 
 const ProfileScreen: React.FC<ProfileScreenProps> = () => {
+  const navigation = useNavigation()
   const [name, setName] = useState('');
   const [pan, setPAN] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
-
+  const LogOut = async () => {
+    await AsyncStorage.removeItem('Id');
+    navigation.navigate('Auth');
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile</Text>
@@ -21,7 +27,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = () => {
       <Text style={styles.value}>{email}</Text>
       <Text style={styles.label}>Address:</Text>
       <Text style={styles.value}>{address}</Text>
-      <PrimaryButton content='Log Out' />
+      <PrimaryButton  onPress={LogOut} content='Log Out' />
     </View>
   );
 };
