@@ -20,12 +20,23 @@ export default function AuthScreen(props: AuthScreenProps): JSX.Element {
         });
 
         GoogleSignin.signIn()
-            .then((res) => {
+            .then(async (res) => {
                 console.log(res.user);
-                axiosClient.post('/checkUserExist').then((res) => {
+                await axiosClient.post('/checkUserExist', {
+                    email: res.user.email,
+                }).then(async (response) => {
                     console.log('====================================');
-                    console.log(res.data);
+                    console.log(response.data);
                     console.log('====================================');
+                    const userExist = response.data.userExist;
+                    if (userExist) {
+                        await AsyncStorage.setItem('Id', response.data.userData.Id);
+                        navigation.navigate('Profile');
+
+                    }
+                    if (!userExist) {
+                        navigation.navigate('RegisterationForm', { user: res.user });
+                    }
                 })
 
                     .catch((err) => {
@@ -33,7 +44,7 @@ export default function AuthScreen(props: AuthScreenProps): JSX.Element {
                     });
 
 
-                navigation.navigate('RegisterationForm', { user: res.user });
+
             })
             .catch(error => {
                 console.log(error);
