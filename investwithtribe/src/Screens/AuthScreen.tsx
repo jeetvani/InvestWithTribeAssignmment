@@ -3,6 +3,7 @@ import React from 'react';
 import PrimaryButton from '../Components/PrimaryButton';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useNavigation } from '@react-navigation/native';
+import axiosClient from '../Api/axiosClient';
 
 
 interface AuthScreenProps {
@@ -10,6 +11,7 @@ interface AuthScreenProps {
 }
 
 export default function AuthScreen(props: AuthScreenProps): JSX.Element {
+
     const navigation = useNavigation();
     const googleSignIn = () => {
         console.log('Sign in with google');
@@ -20,6 +22,17 @@ export default function AuthScreen(props: AuthScreenProps): JSX.Element {
         GoogleSignin.signIn()
             .then((res) => {
                 console.log(res.user);
+                axiosClient.post('/checkUserExist').then((res) => {
+                    console.log('====================================');
+                    console.log(res.data);
+                    console.log('====================================');
+                })
+
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
+
                 navigation.navigate('RegisterationForm', { user: res.user });
             })
             .catch(error => {
